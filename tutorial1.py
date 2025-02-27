@@ -41,4 +41,9 @@ u = np.sin(2*np.pi*f*tVec)
 t, y = ct.forced_response(W, tVec, u)
 myPlotter(t, y, 't', 'y', 'W - forced response')
 myPlotter(tVec, u, 't', 'u', 'W - input')
+
+x_0 = np.array([2, -2])
+t, y = ct.initial_response(W, tVec, x_0)
+myPlotter(t, y, 't', 'y', 'W - initial response')
+
 plt.show()
