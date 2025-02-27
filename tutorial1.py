@@ -13,7 +13,6 @@ def myPlotter(xVals, yVals, xLabel, yLabel, title):
     plt.xlabel(xLabel)
     plt.ylabel(yLabel)
     plt.grid(visible=True)
-    plt.show()
 
 '''
 example:
@@ -29,4 +28,7 @@ print(W)
 tVec = np.linspace(0, 50, 10000)
 t, y = ct.step_response(W, tVec)
 myPlotter(t, y, 't', 'y', 'W - step response')
+t, y = ct.impulse_response(W, tVec)
+myPlotter(t, y, 't', 'y', 'W - impulse response')
 
+plt.show()
