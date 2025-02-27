@@ -25,10 +25,20 @@ num = [2, 1]
 den = [3, 2, 1]
 W = ct.tf(num, den)
 print(W)
-tVec = np.linspace(0, 50, 10000)
+tVec = np.linspace(0, 50, 50000)
+
+# step response
 t, y = ct.step_response(W, tVec)
 myPlotter(t, y, 't', 'y', 'W - step response')
+
+# impulse response
 t, y = ct.impulse_response(W, tVec)
 myPlotter(t, y, 't', 'y', 'W - impulse response')
 
+# response to an arbitrary input `u`
+f = 1 # Hz
+u = np.sin(2*np.pi*f*tVec)
+t, y = ct.forced_response(W, tVec, u)
+myPlotter(t, y, 't', 'y', 'W - forced response')
+myPlotter(tVec, u, 't', 'u', 'W - input')
 plt.show()
