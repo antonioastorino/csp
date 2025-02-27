@@ -15,7 +15,18 @@ def myPlotter(xVals, yVals, xLabel, yLabel, title):
     plt.grid(visible=True)
     plt.show()
 
-xVals = [1, 2]
-yVals = [3, 2]
-myPlotter(xVals, yVals, 'x', 'y', 'hello')
+'''
+example:
+     2 s + 1
+ ---------------
+ 3 s^2 + 2 s + 1
+'''
+
+num = [2, 1]
+den = [3, 2, 1]
+W = ct.tf(num, den)
+print(W)
+tVec = np.linspace(0, 50, 10000)
+t, y = ct.step_response(W, tVec)
+myPlotter(t, y, 't', 'y', 'W - step response')
 
