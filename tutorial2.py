@@ -1,6 +1,6 @@
 '''
 Resources:
-- Python Control Systems Library Tutorial 1: https://www.youtube.com/watch?v=ZNBAq9dT4IE
+- Python Control Systems Library Tutorial 2: https://www.youtube.com/watch?v=qBDcHKkHzIE&t
 '''
 import matplotlib.pyplot as plt
 import control as ct
