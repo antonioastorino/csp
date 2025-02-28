@@ -11,17 +11,6 @@ animation of the pendulum.
         * `animation = False`
         * `DURATION = 1000`
 
-The update equation follows this idea. I don't know a closed formula for the speed (theta_dot).
-Therefore, I create two functions where the speed has opposite sign and add them up:
-theta(t + dt) - theta(t) ~ +theta_dot(t) * dt + 1/2 theta_double_dot(t) * dt^2  +
-theta(t - dt) - theta(t) ~ -theta_dot(t) * dt + 1/2 theta_double_dot(t) * dt^2  =
---------------------------------------------------------------------------------
-theta(t + dt) + theta(t - dt) ~ theta_double_dot(t) * dt^2
-=>
-theta(t + dt) ~ theta_double_dot(t) * dt^2 - theta(t - dt)
-=>
-theta(t + dt) ~ -g / l * sin (theta) * dt^2 - theta(t - dt)
-
 The problem is setting the initial conditions. Basically, you can define them in terms of initial
 displacement (theta(t = -dt) and theta(t = 0)). This is causes problems if you change the
 time interval `dt`, as the same displacement would occur within a different time slot. So, don't
